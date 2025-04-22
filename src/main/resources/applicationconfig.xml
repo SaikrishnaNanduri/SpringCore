@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--<bean id="java" class="org.example.services.Java"/>
+    <bean id="sb" class="org.example.services.SpringBoot"/>-->
+<!--<bean id="ts" class="org.example.services.TShapedSkill">-->
+
+    <!-- Injecting the 'java' bean into 'course' property -->
+    <!--<property name="course" ref="java"/>-->
+
+    <!--If bean injection need to go through like written below-->
+    <!--<constructor-arg name ="course" ref ="java" />-->
+<!--</bean>-->
+<!--for auto wiring ot spring DI need to happen automatically through  below-->
+    <bean id="java" class="org.example.services.Java" primary="true"/>
+    <bean id="sb" class="org.example.services.SpringBoot" />
+    <bean id="ts" class="org.example.services.TShapedSkill" autowire="byType"/>
+
+</beans>
