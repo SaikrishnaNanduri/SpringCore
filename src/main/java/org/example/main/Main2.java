@@ -1,6 +1,8 @@
 package org.example.main;
 
 import org.example.services.TShapedSkill;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -30,15 +32,18 @@ public class Main2 {
         // Two Types of Container
         // 1.ApplicationContext
         // 2.Bean Factory
-        // Starts with Application Context
-        ApplicationContext applicationContext =new ClassPathXmlApplicationContext("applicationconfig.xml");
-        TShapedSkill tShapedSkill =applicationContext.getBean(TShapedSkill.class);
-        Boolean aBoolean =tShapedSkill.getTheCourse(454.4);
-        if(aBoolean){
+        // Second with Bean Factory
+
+        DefaultListableBeanFactory defaultListableBeanFactory =new DefaultListableBeanFactory();
+        XmlBeanDefinitionReader reader =new XmlBeanDefinitionReader(defaultListableBeanFactory);
+        reader.loadBeanDefinitions("applicationconfig.xml");
+        /*TShapedSkill tShapedSkill =defaultListableBeanFactory.getBean(TShapedSkill.class);
+        Boolean aBoolean =tShapedSkill.getTheCourse(454.4);*/
+        /*if(aBoolean){
             System.out.println("Successfully Purchased.");
         }else{
             System.out.println("Failed to get Course");
-        }
+        }*/
 
     }
 }

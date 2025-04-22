@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+           http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--<bean id="java" class="org.example.services.Java"/>
-    <bean id="sb" class="org.example.services.SpringBoot"/>-->
-<!--<bean id="ts" class="org.example.services.TShapedSkill">-->
-
-    <!-- Injecting the 'java' bean into 'course' property -->
-    <!--<property name="course" ref="java"/>-->
-
-    <!--If bean injection need to go through like written below-->
-    <!--<constructor-arg name ="course" ref ="java" />-->
-<!--</bean>-->
-<!--for auto wiring ot spring DI need to happen automatically through  below-->
-    <bean id="java" class="org.example.services.Java" primary="true"/>
-    <bean id="sb" class="org.example.services.SpringBoot" />
-    <bean id="ts" class="org.example.services.TShapedSkill" autowire="byType"/>
+    <context:annotation-config />
+    <context:component-scan base-package="org.example.main" />
 
 </beans>
+
+<!--This is used for Application Context-->
+
+        <!--
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.springframework.org/schema/beans
+                                       http://www.springframework.org/schema/beans/spring-beans.xsd">
+            &lt;!&ndash;<bean id="java" class="org.example.services.Java"/>
+            <bean id="sb" class="org.example.services.SpringBoot"/>&ndash;&gt;
+        &lt;!&ndash;<bean id="ts" class="org.example.services.TShapedSkill">&ndash;&gt;
+
+            &lt;!&ndash; Injecting the 'java' bean into 'course' property &ndash;&gt;
+            &lt;!&ndash;<property name="course" ref="java"/>&ndash;&gt;
+
+            &lt;!&ndash;If bean injection need to go through like written below&ndash;&gt;
+            &lt;!&ndash;<constructor-arg name ="course" ref ="java" />&ndash;&gt;
+        &lt;!&ndash;</bean>&ndash;&gt;
+        &lt;!&ndash;for auto wiring ot spring DI need to happen automatically through  below&ndash;&gt;
+           &lt;!&ndash; <bean id="java" class="org.example.services.Java" primary="true"/>
+            <bean id="sb" class="org.example.services.SpringBoot" />
+            <bean id="ts" class="org.example.services.TShapedSkill" autowire="byType"/>&ndash;&gt;
+        </beans>
+        -->
